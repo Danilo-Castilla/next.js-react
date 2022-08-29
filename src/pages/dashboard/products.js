@@ -35,7 +35,7 @@ export default function products() {
           type: 'error',
           autoClose: true,
         });
-      });
+      })
       .catch((error) => {
         setAlert({
           active: true,
