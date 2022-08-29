@@ -26,10 +26,10 @@ function useProvideAuth() {
             },
         };
 
-        const { data: token_acces } = await axios.post(endPoints.auth.login, { email, password }, options);
+        const { data: token_access } = await axios.post(endPoints.auth.login, { email, password }, options);
 
-        if(token_acces) {
-            const token = token_acces.access_token;
+        if(token_access) {
+            const token = token_access.access_token;
             Cookie.set('token', token, { expires: 5 });
 
             axios.defaults.headers.Authorization = `Bearer ${token}`;
@@ -39,10 +39,18 @@ function useProvideAuth() {
         }
     };
 
+    const logout = () => {
+        Cookie.remove('token');
+        setUser(null);
+        delete axios.defaults.headers.Authorization;
+        window.location.href = '/login';
+    }
+
     return {
         user,
         error,
         setError,
         signIn,
+        logout,
     };
 }
