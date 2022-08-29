@@ -4,8 +4,6 @@ import { Popover, Transition } from '@headlessui/react';
 //import Head from 'next/head';
 //import Image from 'next/image';
 
-
-
 const navigation = [
   { name: 'Product', href: '#' },
   { name: 'Features', href: '#' },

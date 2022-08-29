@@ -15,9 +15,10 @@ export default function LoginPage() {
     const password = passwordRef.current.value;
 
     //console.log(email, password)
-    auth.signIn(email, password).then(() => {
-      router.push('dashboard');
-    },
+    auth.signIn(email, password).then(
+      () => {
+        router.push('dashboard');
+      },
       (eventError) => {
         console.log('Login Failed');
         console.error(eventError);
